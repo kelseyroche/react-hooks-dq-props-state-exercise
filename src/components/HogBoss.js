@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Boss from "../assets/boss-hog.png";
 import BabyHog from "./BabyHog";
-// import offspring from "../data.js"
+import offspring from "../data.js" //this was previously commented out
 
 function HogBoss() {
   const [eyeColor, setEyeColor] = useState("blue");
@@ -40,9 +40,13 @@ function HogBoss() {
         <img id="boss-blaster" src={Boss} alt="" />
       </div>
       <ul className="hoglist">
-        <BabyHog />
-        <BabyHog />
-        <BabyHog />
+       {offspring.map ((o) => (
+        <BabyHog
+          key = {o.id} 
+          name = {o.name}
+          hobby= {o.hobby}
+          eyeColor = {eyeColor}/> //fixed the parenthesis here
+       ))}
       </ul>
     </div>
   );
